@@ -1,0 +1,3 @@
+application_type: in_app
+quable_pim_scope:
+  - full_access

@@ -1,0 +1,410 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #f1f1f5;
+}
+
+.custom-toast {
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.truncate {
+    width: 130px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.truncate-wrap {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.row-center {
+    display: flex;
+    justify-content: space-around;
+}
+
+.muted {
+    color: #808080;
+}
+
+.space-around {
+    justify-content: space-around;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.flex-h {
+    display: flex;
+    align-items: center;
+}
+
+.flex-v {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.flex-v-center {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.flex-v-start {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+}
+
+.flex-h-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-inline-h-center {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-h-end {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.flex-h-start {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.flex-h-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-check-input:checked[type='checkbox'] {
+    cursor: pointer;
+}
+
+.is-disabled::after {
+    border-color: transparent !important;
+}
+
+.table-responsive {
+    overflow-y: hidden !important;
+}
+
+@keyframes loading {
+    0% {
+        transform: skewX(-10deg) translateX(-100%);
+    }
+
+    100% {
+        transform: skewX(-10deg) translateX(200%);
+    }
+}
+
+.band {
+    color: #ffffff;
+    background-color: #556ee6;
+    border-color: #cfd6f8;
+    padding: 1.25rem;
+}
+
+.band h6 {
+    margin: 0px;
+    font-weight: 600;
+    font-size: 0.9375rem !important;
+    font-family: Poppins, Arial, sans-serif;
+    line-height: 1.235;
+}
+
+.band p {
+    margin: 0px;
+    font-weight: 400;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    font-family: Poppins, Arial, sans-serif;
+}
+
+.btn {
+    outline: 0px;
+    border: 0px;
+    margin: 0px;
+    cursor: pointer;
+    user-select: none;
+    appearance: none;
+    text-decoration: none;
+    font-family: 'Poppins', Arial, sans-serif;
+    min-width: 64px;
+    padding: 6px 16px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+        box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+        border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+        color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    color: rgb(255, 255, 255);
+    line-height: 1.5;
+    font-size: 0.8125rem;
+    box-shadow: none;
+    border-radius: 0.25rem;
+    text-transform: none;
+    font-weight: 400;
+}
+
+.btn-primary {
+    background-color: rgb(85, 110, 230);
+}
+
+.btn-close {
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: relative;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    background-color: transparent;
+    outline: 0px;
+    border: 0px;
+    margin: 0px;
+    cursor: pointer;
+    user-select: none;
+    vertical-align: middle;
+    appearance: none;
+    text-decoration: none;
+    text-align: center;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    overflow: visible;
+    color: rgba(0, 0, 0, 0.54);
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    padding: 16px !important;
+    font-size: 14px;
+}
+
+.btn-light:hover {
+    text-decoration: none;
+    background-color: rgb(167, 169, 172);
+}
+
+.btn-light {
+    box-shadow: none;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+        box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+        border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+        color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    color: rgba(0, 0, 0, 0.87);
+    background-color: rgb(239, 242, 247);
+}
+
+.confirm-modal-message {
+    margin: 0px;
+    font-weight: 400;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    font-family: Poppins, Arial, sans-serif;
+}
+
+.modal-title {
+    margin: 0px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: Poppins, Arial, sans-serif;
+    line-height: 1.167;
+}
+
+.flex-grow-2 {
+    flex-grow: 2;
+}
+
+.css-vubbuv {
+    user-select: none;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    fill: currentcolor;
+    flex-shrink: 0;
+    transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    font-size: 1.5rem;
+}
+
+.form-control.is-invalid {
+    background-image: none !important;
+}
+
+.app-name {
+    margin: 0px;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: rgb(73, 80, 87);
+    line-height: 1.235;
+    text-transform: uppercase;
+    font-family: Poppins, Arial, sans-serif;
+}
+
+.app-header {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 8px;
+    gap: 8px;
+}
+
+.main-page-container {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 8px;
+    gap: 8px;
+    height: 100vh;
+    padding: 16px 6%;
+}
+
+.blueBanner-container {
+    position: relative;
+    margin-top: 8px;
+    background-color: #556ee6;
+    border-radius: 0.25rem;
+    padding: 1.25rem;
+    box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    grid-gap: 12px;
+    gap: 12px;
+}
+
+.blueBanner-header {
+    margin: 0px;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    font-family: Poppins, Arial, sans-serif;
+    line-height: 1.235;
+    color: white;
+}
+
+.blueBanner-body {
+    margin: 0px;
+    font-weight: 400;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    font-family: Poppins, Arial, sans-serif;
+}
+
+.blueBanner-container span a {
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: relative;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    background-color: transparent;
+    outline: 0px;
+    margin: 0px;
+    cursor: pointer;
+    user-select: none;
+    vertical-align: middle;
+    appearance: none;
+    text-decoration: none;
+    font-family: Poppins, Arial, sans-serif;
+    min-width: 64px;
+    padding: 5px 15px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+        box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+        border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+        color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border: 1px solid white;
+    line-height: 1.5;
+    font-size: 0.8125rem;
+    box-shadow: none;
+    border-radius: 0.25rem;
+    text-transform: none;
+    font-weight: 400;
+    color: white;
+}
+
+.blueBanner-container span a span:last-child {
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
+    z-index: 0;
+    inset: 0px;
+    border-radius: inherit;
+}
+
+.helpButton {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.rotate {
+    animation: rotate 4s linear infinite;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-sm {
+    font-size: smaller;
+}
+
+.modal {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+.center {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}

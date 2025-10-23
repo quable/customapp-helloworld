@@ -1,0 +1,1 @@
+export const RESOURCES_ID = 'custom_app.helloworld';

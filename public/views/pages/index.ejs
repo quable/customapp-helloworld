@@ -1,0 +1,49 @@
+<%
+  const formatDate = (d) => {
+    if (!d) return 'N/A';
+    try {
+      return new Date(d).toLocaleString('en-US', {
+        dateStyle: 'medium',
+        timeStyle: 'short'
+      });
+    } catch (e) {
+      return d;
+    }
+  };
+%>
+
+<div class="container py-4 text-left">
+  <% if (typeof data !== 'undefined' && data) { %>
+    <div class="card shadow-sm border-0 mt-4">
+      <div class="card-header bg-success text-white fw-semibold">
+        <i class="bi bi-info-circle me-2"></i> Application Information
+      </div>
+      <div class="card-body">
+        <p class="mb-4 text-muted">The application is currently <strong class="text-success">active</strong>.</p>
+
+        <div class="mb-3">
+          <h6 class="fw-bold text-dark mb-1">
+           Webhook Configuration
+          </h6>
+          <p class="mb-0">
+            <span class="fw-semibold">Name:</span> <%= data.webhook.name %><br>
+            <small class="text-muted">Created on <%= formatDate(data.webhook.dateCreated) %></small>
+          </p>
+        </div>
+
+        <hr>
+
+        <div>
+          <h6 class="fw-bold text-dark mb-1">
+           Key / Value
+          </h6>
+          <p class="mb-0">
+            <span class="fw-semibold">Id:</span> <%= data.keyValue.id %><br>
+            <span class="fw-semibold">Value:</span> "<%= data.keyValue.value %>"<br>
+            <small class="text-muted">Last updated on <%= formatDate(data.keyValue.dateModified) %></small>
+          </p>
+        </div>
+      </div>
+    </div>
+  <% } %>
+</div>
