@@ -14,7 +14,7 @@ Cette application exemple démontre l'intégration avec Quable PIM via une Quabl
 
 ## 📋 Prérequis
 
-- Node.js >= 24.22.1 (version indiquée dans `.nvmrc`)
+- Node.js >= 24.22.1 (voir `.nvmrc`). Ce minimum est volontaire : 24.22.1 est la première version de Node 24 qui contient les correctifs de la [release de sécurité d'octobre 2026](https://nodejs.org/en/blog/vulnerability/october-2026-security-releases). Yarn refuse l'installation sur une version plus ancienne : lancez `nvm install` pour mettre à jour.
 - Yarn 1.22 (le projet utilise `yarn.lock` ; avec Corepack : `corepack enable`)
 - Instance Quable PIM
 - Token API Quable avec permissions full_access

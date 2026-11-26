@@ -32,7 +32,6 @@
   "dependencies": {
     "@prisma/client": "^6.18.0",
     "@quable/quable-pim-js": "^3.0.0",
-    "axios": "^1.6.2",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "ejs": "^3.1.9",

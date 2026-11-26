@@ -4,3 +4,4 @@ dist
 database/*.db
 database/*.db-journal
 database/*.db.backup
+.DS_Store
