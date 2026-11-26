@@ -4,14 +4,15 @@
   "author": "Quable",
   "license": "MIT",
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=24.22.1"
   },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e",
   "_moduleAliases": {
     "src": "dist"
   },
   "scripts": {
     "build": "rimraf ./dist && tsc --build tsconfig.json",
-    "lint": "npx eslint --ext .ts src/",
+    "lint": "eslint --ext .ts src/",
     "start": "node -r module-alias/register ./dist --env=production",
     "dev": "nodemon"
   },
@@ -30,8 +31,7 @@
   },
   "dependencies": {
     "@prisma/client": "^6.18.0",
-    "@quable/quable-pim-js": "^2.0.2",
-    "axios": "^1.6.2",
+    "@quable/quable-pim-js": "^3.0.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "ejs": "^3.1.9",

@@ -8,8 +8,8 @@ class WebhookService {
 
     public registerWebhook = async (quableInstance: QuableInstance) => {
         const { authToken, name } = quableInstance;
-        const quablePIMClient = new QuablePimClient({ apiKey: authToken, instanceName: name });
-        const webhooks = await quablePIMClient.PimApi.Webhook.getAll({
+        const quablePIMClient = new QuablePimClient({ apiToken: authToken, instanceName: name });
+        const webhooks = await quablePIMClient.API.REST.Webhook.getAll({
             limit: 1,
             name: RESOURCES_ID,
         });
@@ -21,9 +21,9 @@ class WebhookService {
             events: ['document.update'],
         };
         if (!webhook) {
-            webhook = await quablePIMClient.PimApi.Webhook.create({ ...payload });
+            webhook = await quablePIMClient.API.REST.Webhook.create({ ...payload });
         } else {
-            webhook = await quablePIMClient.PimApi.Webhook.update(webhook.id, { ...payload });
+            webhook = await quablePIMClient.API.REST.Webhook.update(webhook.id, { ...payload });
         }
         return webhook;
     };
