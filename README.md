@@ -15,7 +15,7 @@ Cette application exemple démontre l'intégration avec Quable PIM via une Quabl
 ## 📋 Prérequis
 
 - Node.js >= 24.22.1 (version indiquée dans `.nvmrc`)
-- npm (le projet utilise `package-lock.json`)
+- Yarn 1.22 (le projet utilise `yarn.lock` ; avec Corepack : `corepack enable`)
 - Instance Quable PIM
 - Token API Quable avec permissions full_access
 
@@ -29,7 +29,7 @@ cd customapp-helloworld
 
 ### 2. Installer les dépendances
 ```bash
-npm ci
+yarn install --frozen-lockfile
 ```
 
 ### 3. Configuration
@@ -48,8 +48,8 @@ Pour l'URL, n'hésitez pas à utiliser un tunnel pour que le PIM puisse joindre 
 
 ### 4. Base de données
 ```bash
-npx prisma migrate dev --name init
-npx prisma generate
+yarn prisma migrate dev --name init
+yarn prisma generate
 ```
 
 ## 🔧 Déclaration dans Quable PIM
@@ -63,7 +63,7 @@ npx prisma generate
 ### 2. Ajouter manuellement l'instance en BDD
 
 ```bash
-npx prisma studio
+yarn prisma studio
 ```
 
 ## 🏃 Utilisation
@@ -71,9 +71,9 @@ npx prisma studio
 ### Démarrage
 ```bash
 # Mode développement
-npm run dev
+yarn dev
 # Mode production
-npm run build && npm start
+yarn build && yarn start
 ```
 
 ### Endpoints
@@ -102,8 +102,8 @@ npm run build && npm start
 
 ## 🔐 Sécurité
 
-- Validation HMAC sur tous les endpoints
-- Tokens stockés en base de données
+- Validation HMAC du lancement de slot (`POST /`)
+- Tokens stockés en base de données locale (`database/dev.db`, ignorée par git : ne jamais la commiter)
 - Utilisation de `timingSafeEqual` contre timing attacks
 
 ## 🔧 Erreurs avec la base de Données
@@ -135,11 +135,11 @@ cp database/dev.db database/dev.db.backup
 rm database/dev.db
 
 # 4. Recréer la base avec Prisma
-npx prisma migrate dev --name init
-npx prisma generate
+yarn prisma migrate dev --name init
+yarn prisma generate
 
 # 5. Ajouter une instance de test
-npx prisma studio
+yarn prisma studio
 # OU utiliser un script SQL
 ```
 
@@ -217,17 +217,17 @@ rm -rf database/dev.db
 rm -rf node_modules/.prisma
 rm -rf node_modules/@prisma
 
-# 2. Réinstaller les dépendances
-npm install
+# 2. Réinstaller les dépendances (--check-files force la réinstallation des dossiers supprimés)
+yarn install --frozen-lockfile --check-files
 
 # 3. Générer Prisma
-npx prisma generate
+yarn prisma generate
 
-# 4. Créer la base
-npx prisma db push
+# 4. Créer la base à partir des migrations
+yarn prisma migrate dev
 
 # 5. Vérifier avec Prisma Studio
-npx prisma studio
+yarn prisma studio
 ```
 
 ### 🛠️ Script de Test Complet
@@ -306,7 +306,7 @@ chmod 644 database/dev.db
 
 ```bash
 # Installer sqlite3 si nécessaire
-npm install sqlite3
+sudo apt install sqlite3   # ou : brew install sqlite
 
 # Vérifier l'intégrité de la base
 sqlite3 database/dev.db "PRAGMA integrity_check;"
@@ -324,23 +324,18 @@ Après correction, tester avec:
 
 ```bash
 # 1. Lancer l'application
-npm run dev
+yarn dev
 
 # 2. Tester l'endpoint
-curl -X POST http://localhost:4000/ \
+curl -X POST "http://localhost:4000/?quableInstanceName=test-instance&dataLocale=fr_FR&interfaceLocale=fr_FR&userId=123" \
   -H "Content-Type: application/json" \
   -H "X-Signature: [signature]" \
   -H "X-Timestamp: [timestamp]" \
-  -d '{
-    "instance": "test-instance",
-    "slot": "document.page.tab",
-    "data": {
-      "dataLocale": "fr_FR",
-      "interfaceLocale": "fr_FR",
-      "userId": "123"
-    }
-  }'
+  -d '{"instance":"test-instance","slot":"document.page.tab","data":{"dataLocale":"fr_FR","interfaceLocale":"fr_FR","userId":"123"}}'
 ```
+
+La signature attendue est `base64(HMAC-SHA256(quableAppSecret, "POST|<QUABLE_APP_HOST_URL>?<query string>|<timestamp>|<body>"))`,
+calculée sur le body exact envoyé. Avec une signature invalide, l'application répond `400 Invalid signature`.
 
 
 ## 📝 License
