@@ -6,10 +6,10 @@ class KeyValueService {
 
     public registerKeyValue = async (quableInstance: QuableInstance, value?: string) => {
         const { authToken, name } = quableInstance;
-        const quablePIMClient = new QuablePimClient({ apiKey: authToken, instanceName: name });
+        const quablePIMClient = new QuablePimClient({ apiToken: authToken, instanceName: name });
         let keyValue;
         try {
-            keyValue = await quablePIMClient.PimApi.KeyValue.get(RESOURCES_ID);
+            keyValue = await quablePIMClient.API.REST.KeyValue.get(RESOURCES_ID);
         } catch (error) {
             console.log(error);
         }
@@ -20,9 +20,9 @@ class KeyValueService {
             isPublic: true,
         };
         if (!keyValue) {
-            keyValue = await quablePIMClient.PimApi.KeyValue.create(payload);
+            keyValue = await quablePIMClient.API.REST.KeyValue.create(payload);
         } else {
-            keyValue = await quablePIMClient.PimApi.KeyValue.update(RESOURCES_ID, payload);
+            keyValue = await quablePIMClient.API.REST.KeyValue.update(RESOURCES_ID, payload);
         }
         return keyValue;
     };

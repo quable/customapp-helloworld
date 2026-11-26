@@ -14,7 +14,8 @@ Cette application exemple démontre l'intégration avec Quable PIM via une Quabl
 
 ## 📋 Prérequis
 
-- Node.js >= 16.0.0
+- Node.js >= 24.22.1 (version indiquée dans `.nvmrc`)
+- npm (le projet utilise `package-lock.json`)
 - Instance Quable PIM
 - Token API Quable avec permissions full_access
 
@@ -28,9 +29,7 @@ cd customapp-helloworld
 
 ### 2. Installer les dépendances
 ```bash
-npm install
-# ou
-yarn install
+npm ci
 ```
 
 ### 3. Configuration
@@ -45,7 +44,7 @@ QUABLE_APP_PORT=4000
 QUABLE_APP_HOST_URL=https://votre-url.com
 ```
 
-Pour l'URL, n'hésitez pas à utilier un tunnel pour que le PIM puisse joidnre votre application lancée localement.
+Pour l'URL, n'hésitez pas à utiliser un tunnel pour que le PIM puisse joindre votre application lancée localement.
 
 ### 4. Base de données
 ```bash
@@ -57,7 +56,7 @@ npx prisma generate
 
 ### 1. Accéder à l'admin du PIM
 1. Créer une nouvelle CustomApp
-2. Renseigner bien l'URL public de votre application
+2. Bien renseigner l'URL publique de votre application
 3. Cocher TOUS les slots disponibles
 4. Noter le secret pour la validation HMAC
 
@@ -71,9 +70,9 @@ npx prisma studio
 
 ### Démarrage
 ```bash
-// Mode développement
+# Mode développement
 npm run dev
-// Mode production
+# Mode production
 npm run build && npm start
 ```
 

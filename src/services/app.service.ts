@@ -63,14 +63,15 @@ class AppService {
       .update(stringToSign)
       .digest();
 
-    const signature = hmac.toString('base64');
-    const receivedSignature = req.headers['x-signature'] as string;
+    const expected = Buffer.from(hmac.toString('base64'));
+    const receivedSignature = req.headers['x-signature'];
+    if (typeof receivedSignature !== 'string') {
+      return false;
+    }
+    const received = Buffer.from(receivedSignature);
 
-
-    return timingSafeEqual(
-      Buffer.from(signature),
-      Buffer.from(receivedSignature)
-    );
+    // timingSafeEqual throws on length mismatch: reject explicitly instead of returning a 500.
+    return received.length === expected.length && timingSafeEqual(expected, received);
   };
 }
 

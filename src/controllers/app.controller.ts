@@ -7,7 +7,7 @@ class AppController {
     if (!req.quableInstance) {
         return res.status(400).json({ 
             error: 'Unknown PIM instance',
-            message: 'This PIM instance does not exist'
+            message: 'This PIM instance does not exist',
         });
     }
     
@@ -18,7 +18,7 @@ class AppController {
         console.error('Error loading config page:', error);
         return res.status(500).json({ 
             error: 'Internal Server Error',
-            message: 'The configuration page could not be loaded'
+            message: 'The configuration page could not be loaded',
         });
     }
 };

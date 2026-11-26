@@ -4,7 +4,7 @@
   "author": "Quable",
   "license": "MIT",
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=24.22.1"
   },
   "_moduleAliases": {
     "src": "dist"
@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@prisma/client": "^6.18.0",
-    "@quable/quable-pim-js": "^2.0.2",
+    "@quable/quable-pim-js": "^3.0.0",
     "axios": "^1.6.2",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
